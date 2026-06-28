@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WARI Protocol — Envoyez de l'argent en Afrique depuis vos crypto</title>
+  <meta name="description" content="Envoyez USDT directement sur le Mobile Money de votre famille en Côte d'Ivoire et au Sénégal. En moins de 2 minutes. À 1% de frais." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0A0E1A;
+      --navy2:  #111827;
+      --gold:   #F5A623;
+      --gold2:  #F7C05A;
+      --white:  #FFFFFF;
+      --gray:   #9CA3AF;
+      --gray2:  #374151;
+      --green:  #10B981;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--gray2);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: -0.5px;
+    }
+    .logo span { color: var(--white); }
+    .nav-badge {
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 99px;
+      letter-spacing: 0.5px;
+    }
+
+    /* HERO */
+    .hero {
+      max-width: 800px;
+      margin: 5rem auto 3rem;
+      padding: 0 2rem;
+      text-align: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(245, 166, 35, 0.1);
+      border: 1px solid rgba(245, 166, 35, 0.3);
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 1rem;
+      border-radius: 99px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 .highlight { color: var(--gold); }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+    }
+
+    /* STATS */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-value {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--gold);
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-top: 0.2rem;
+    }
+
+    /* WAITLIST FORM */
+    .waitlist {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 480px;
+      margin: 0 auto 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .waitlist input {
+      flex: 1;
+      min-width: 220px;
+      padding: 0.85rem 1.25rem;
+      background: var(--navy2);
+      border: 1px solid var(--gray2);
+      border-radius: 0.6rem;
+      color: var(--white);
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .waitlist input:focus { border-color: var(--gold); }
+    .waitlist input::placeholder { color: var(--gray); }
+    .btn-primary {
+      padding: 0.85rem 1.75rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 0.6rem;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
+    .waitlist-note {
+      font-size: 0.8rem;
+      color: var(--gray);
+      text-align: center;
+    }
+
+    /* HOW IT WORKS */
+    .section {
+      max-width: 1100px;
+      margin: 5rem auto;
+      padding: 0 2rem;
+    }
+    .section-tag {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+    .section h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 800;
+      margin-bottom: 3rem;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .step {
+      background: var(--navy2);
+      border: 1px solid var(--gray2);
+      border-radius: 1rem;
+      padding: 1.75rem;
+    }
+    .step-num {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: rgba(245, 166, 35, 0.15);
+      color: var(--gold);
+      border-radius: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .step p { font-size: 0.875rem; color: var(--gray); line-height: 1.6; }
+
+    /* COMPARISON */
+    .compare {
+      overflow-x: auto;
+      margin-top: 2rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    th {
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--gray);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--gray2);
+    }
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+    }
+    tr.wari-row td { background: rgba(245, 166, 35, 0.05); }
+    tr.wari-row td:first-child { font-weight: 700; color: var(--gold); }
+    .check { color: var(--green); font-weight: 700; }
+    .cross { color: #EF4444; }
+
+    /* COVERAGE */
+    .coverage {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .country-card {
+      background: var(--navy2);
+      border: 1px solid var(--gray2);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .flag { font-size: 2rem; }
+    .country-info h4 { font-size: 0.95rem; font-weight: 600; }
+    .country-info p { font-size: 0.8rem; color: var(--gray); margin-top: 0.2rem; }
+    .badge-live {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--green);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 99px;
+      margin-top: 0.35rem;
+    }
+    .badge-soon {
+      display: inline-block;
+      background: rgba(245, 166, 35, 0.1);
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 99px;
+      margin-top: 0.35rem;
+    }
+
+    /* CTA BOTTOM */
+    .cta-bottom {
+      background: linear-gradient(135deg, rgba(245, 166, 35, 0.08), rgba(245, 166, 35, 0.02));
+      border: 1px solid rgba(245, 166, 35, 0.2);
+      border-radius: 1.5rem;
+      padding: 3rem 2rem;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 6rem;
+    }
+    .cta-bottom h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; }
+    .cta-bottom p { color: var(--gray); margin-bottom: 2rem; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--gray2);
+      padding: 2rem;
+      text-align: center;
+      color: var(--gray);
+      font-size: 0.85rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">WARI<span> Protocol</span></div>
+    <div class="nav-badge">Bêta bientôt</div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag">Remittances crypto vers l'Afrique</div>
+    <h1>Envoyez vos <span class="highlight">USDT</span> directement sur le Mobile Money</h1>
+    <p>Votre famille reçoit en FCFA sur Orange Money, MTN ou Wave. En moins de 2 minutes. À 1% de frais tout compris. Aucune crypto requise côté récepteur.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value">&lt; 2 min</div>
+        <div class="stat-label">Délai de livraison</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">1%</div>
+        <div class="stat-label">Frais total</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">100 Mds$</div>
+        <div class="stat-label">Remittances Afrique/an</div>
+      </div>
+    </div>
+
+    <form class="waitlist" onsubmit="handleSubmit(event)">
+      <input type="email" id="email" placeholder="Votre adresse email" required />
+      <button type="submit" class="btn-primary">Rejoindre la liste</button>
+    </form>
+    <p class="waitlist-note">Accès anticipé. Aucun spam. Désabonnement en 1 clic.</p>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <div class="section-tag">Comment ça marche</div>
+    <h2>Simple pour vous. Invisible pour votre famille.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Créez votre compte</h3>
+        <p>Vérification d'identité en moins de 5 minutes. Selfie + pièce d'identité. Approuvé instantanément.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Choisissez le montant</h3>
+        <p>Entrez le montant en USDT ou USDC. Voyez exactement ce que votre famille reçoit en FCFA avant de confirmer.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Entrez le numéro Mobile Money</h3>
+        <p>Le numéro Orange Money, MTN, Wave ou Moov de votre proche. Aucun compte WARI requis de son côté.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Argent livré en 2 min</h3>
+        <p>Votre famille reçoit un SMS et l'argent est disponible immédiatement sur son Mobile Money.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="section">
+    <div class="section-tag">Comparaison</div>
+    <h2>Pourquoi WARI est différent</h2>
+    <div class="compare">
+      <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Depuis crypto</th>
+            <th>Vers Mobile Money</th>
+            <th>Frais</th>
+            <th>Délai</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="wari-row">
+            <td>WARI Protocol</td>
+            <td class="check">✓ USDT/USDC</td>
+            <td class="check">✓ Orange, MTN, Wave</td>
+            <td class="check">1%</td>
+            <td class="check">&lt; 2 min</td>
+          </tr>
+          <tr>
+            <td>LemFi / TapTap</td>
+            <td class="cross">✗ Virement bancaire seulement</td>
+            <td class="check">✓</td>
+            <td>0%*</td>
+            <td>1-24h</td>
+          </tr>
+          <tr>
+            <td>Western Union</td>
+            <td class="cross">✗</td>
+            <td class="check">✓</td>
+            <td>5-10%</td>
+            <td>Minutes</td>
+          </tr>
+          <tr>
+            <td>Izichange / Fasochange</td>
+            <td class="check">✓</td>
+            <td class="cross">✗ Local seulement</td>
+            <td>2-5%</td>
+            <td>30-90 min</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.75rem;color:var(--gray);margin-top:0.75rem">*Frais cachés dans le taux de change.</p>
+    </div>
+  </section>
+
+  <!-- COVERAGE -->
+  <section class="section">
+    <div class="section-tag">Couverture</div>
+    <h2>Où envoyer de l'argent</h2>
+    <div class="coverage">
+      <div class="country-card">
+        <div class="flag">🇨🇮</div>
+        <div class="country-info">
+          <h4>Côte d'Ivoire</h4>
+          <p>Orange Money, MTN, Moov, Wave</p>
+          <span class="badge-live">Phase 1</span>
+        </div>
+      </div>
+      <div class="country-card">
+        <div class="flag">🇸🇳</div>
+        <div class="country-info">
+          <h4>Sénégal</h4>
+          <p>Orange Money, Wave, Free Money</p>
+          <span class="badge-soon">Phase 1</span>
+        </div>
+      </div>
+      <div class="country-card">
+        <div class="flag">🇲🇱</div>
+        <div class="country-info">
+          <h4>Mali</h4>
+          <p>Orange Money, Moov, Wave</p>
+          <span class="badge-soon">Phase 2</span>
+        </div>
+      </div>
+      <div class="country-card">
+        <div class="flag">🇧🇫</div>
+        <div class="country-info">
+          <h4>Burkina Faso</h4>
+          <p>Orange Money, Moov, Coris</p>
+          <span class="badge-soon">Phase 2</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BOTTOM -->
+  <section class="section">
+    <div class="cta-bottom">
+      <h2>Soyez parmi les premiers</h2>
+      <p>Rejoignez la liste d'attente et accédez à WARI Protocol en avant-première. Les 500 premiers utilisateurs bénéficieront de 3 transferts gratuits.</p>
+      <form class="waitlist" onsubmit="handleSubmit(event)" style="justify-content:center">
+        <input type="email" placeholder="Votre adresse email" required />
+        <button type="submit" class="btn-primary">S'inscrire</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 WARI Protocol. Tous droits réservés.</p>
+    <p style="margin-top:0.5rem">
+      <a href="mailto:contact@wariprotocol.com">contact@wariprotocol.com</a>
+    </p>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const email = e.target.querySelector('input[type="email"]').value;
+      // TODO: Connecter à Supabase ou Tally.so pour stocker l'email
+      alert('Merci ! Nous vous contacterons dès l\'ouverture de la bêta. 🚀');
+      e.target.reset();
+    }
+  </script>
+
+</body>
+</html>
